@@ -104,7 +104,7 @@ Git is available for Windows, macOS, and Linux and is available at https://git-s
 
 ### Account Github
 
-##
+
 
 ## Terminoly
 ### CHeck your git version
@@ -226,7 +226,7 @@ node_module
 
 Now, when you run the `git status` command, it will not show the `node_modules` and `.vscode` folders as being tracked by git.
 
-##
+
 
 ## Git behind the scene (Git Internals)
 Git is a version control system that allows you to track changes to your files and folders. It is a powerful tool that can help you manage your code more effectively. In this section, we will explore the basics of how git works internally.
@@ -458,5 +458,148 @@ List all the branch means that you are going to see all the branches in your rep
 
 ## diff stash and Tags
 ### Git diff
+The `git diff` is an **informative command** that shows the difference betweeen twoo commits. It is used to comapare the changes made in one commit with the changes made in another commit. Git consider the changed versions of the same file as two different files. Then it give names to these two files and shows the differneces between them.
 
+### How to read the diff
+- a -> file A and b -> file B
+- ---- indicates the file A
+- ++++ indicates the file B
+- @@ indicates the line number
 
+Here the file A and file B are the same file but different versions.
+
+GIt will show you the cahnges made in the files A and file B. It will also show you the line number where the change occurred along with little preview of the change.
+
+### Comparing Working Directory and Staging Area
+```
+git diff
+```
+
+This command shows the unstagd changes in your working directory compared to the staging area. This command alone will not show you the changes made in the file A and file B, you nedd to provide options to show the changes
+
+### Comparing Staging Area with Repository
+```
+git diff --staged
+```
+This command shows the changes between your last commit and the staging area (i.e. changes that are staged and ready to be commiterd).
+
+### Comparing between Branches
+```
+git diff <branch-name-one> <branch-name-two>
+```
+This command compares the difference between two branches.
+
+Another way to compare the diifernce between two branches is to use the following command:
+```
+git diff branch-name-one..branch-name-two
+```
+
+### Comparing Specific Commits
+```
+git diff <commit-hash-one> <commit-hash-two>
+```
+This command compares the differnce between two commits.
+
+### Git Stash
+Stash is a way to save your changes ina  temporary location. It is useful when you want to make changes to a file but don't want to commit them yet. You can then came back to the file later and apply the changes.
+
+**Note** Conflicting changes will not allow you to switch branches without commiting the changes in a temporary location.
+
+```
+git stash
+```
+This command saves your changes in a temporary loaction. It is like a stack of changes that you can access later.
+
+### Naming the stash
+You can also name the stash by using the following command:
+```
+git stash save "work in progress on X feature"
+```
+
+### View the stash list
+YOu can view the list of stashes by using the following command:
+```
+git stash list
+```
+
+### Apply the stash
+You can apply the stash by using the following command:
+```
+git stash apply 
+```
+
+### Apply the specific stash
+You can apply the specific stash by using the following command:
+```
+git stash apply stash@{0}
+```
+Here `stash@{0}` is the name of the stash. You can use the `git stash list` command to get the name of the stash.
+
+### Applying and dropping the stash
+You can apply and drop the stash by using the following command:
+```
+git stash pop
+```
+This command applies the stash and drops it from the stash list
+
+### Drop the Stash
+You can drop the stash by using the following command:
+```
+git stash drop
+```
+
+### Applying stash to a specific branch
+You can apply the stash to a specific branch by using the following command:
+```
+git stash apply stash@{0} <branch-name>
+```
+
+### Clearing the stash
+You can clear the stash by using the following command:
+```
+git stash clear
+```
+
+### Git Tags
+Tags are a way to mark a specific point in your repository. They are useful when you want to remember a specific version of your code or when you want to refers  to a specific commit. Tags are like sticky notes that you can attach to your commits.
+
+### Creating a tag
+You can create a tag using the following command:
+```
+git tag <tag-name>
+```
+This command creates a new tag with the specific name. The tag will be attached to the current commit.
+
+### Create an annotated tag
+You can create an annotated tag using the following command:
+```
+git tag -a <tag-name> -m "Release 1.0"
+```
+This  Command creates an annoted tag with the specific name and message. The tag will be attached to the current commit.
+
+### List all tags
+You can list all tag using the following command:
+```
+git tag
+```
+This command lists all the tags in your repository.
+
+### Tagging a specific commit
+You can tag a specific commit using the following command:
+```
+git tag <tag-name> <commit-hash>
+```
+
+### Push tags to remote repository
+You can push tags to a remote repository using the following command:
+```
+git push origin <tag-name>
+```
+
+### Delete a tag
+You can delete a tag on a remote repository using the following command:
+```
+git push origin :<tag-name>
+```
+
+##

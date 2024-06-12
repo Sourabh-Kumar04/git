@@ -104,8 +104,7 @@ Git is available for Windows, macOS, and Linux and is available at https://git-s
 
 ### Account Github
 
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
+##
 
 ## Terminoly
 ### CHeck your git version
@@ -171,11 +170,11 @@ Commit is just like a snaphot of your code at a particular point in time.
 When you commit your changes, you are telling git to save them in a permanent way. This way, you can always go back to that point in time and see what you changed.
 
 Usual flow is look like :
-![alt text](image-1.png)
+![alt text](commit-flow.png)
 
 ### Complte git flow
 A complete git flow, along with pushing the code to github looks like this:
-![alt text](image-2.png)
+![alt text](complete-git-flow.png)
 
 When you want to track a new folder, you first use `init` command to create a new repository. Then you can use `git add` command to add the folder to the repository. After that you can use  `commit` command to save the changes. Finally you can use the `push` command ti push the changes to github. Ofcourse there is more to it but this is the basic flow.
 
@@ -227,7 +226,7 @@ node_module
 
 Now, when you run the `git status` command, it will not show the `node_modules` and `.vscode` folders as being tracked by git.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------
+##
 
 ## Git behind the scene (Git Internals)
 Git is a version control system that allows you to track changes to your files and folders. It is a powerful tool that can help you manage your code more effectively. In this section, we will explore the basics of how git works internally.
@@ -301,9 +300,11 @@ Conceptually, the data that Git is storing looks something like this:
 
 ### Types of commands in git
 1. Porcelain
+
 ![alt text](porcelain.png)
 
 2. Plumbing
+
 ![alt text](plumbing.png)
 
 3. Gardening Command (not sure about it)
@@ -315,7 +316,7 @@ git status
 touch example.txt
 git status
 ```
-Untracked file
+Output is untracked files
 
 To tracked the untracked file(stage version)
 Before interface:
@@ -389,7 +390,7 @@ Some points to note:
 
 
 ### Merging branches
-#### Fast_forward merge
+#### **Fast_forward merge**
 This one is easy as branch that you are trying to merge is usually ahead and there are no conflicts.
 
 When you are done working on a branch, you can merge it back into the main branch. This is done using the following command:
@@ -405,7 +406,7 @@ Some points to note:
 
 This is a fast-forward merge. It means that the commit in the `bug-fix` branch are directly merged into the `main` branch. This can be useful when you want to merge a branch that has already been pushed to the remote repository.
 
-####  Not Fast-forward merge
+#### **Not Fast-forward merge**
 
 
 In this type of merge, the master branch also worked and have some commits that are not in the `bug-fix` branch. This is a not fast-forward merge.
@@ -455,5 +456,7 @@ git branch
 
 List all the branch means that you are going to see all the branches in your repository.
 
-## 
+## diff stash and Tags
+### Git diff
+
 

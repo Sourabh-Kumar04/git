@@ -1,6 +1,15 @@
 # Git 
 ## Index
 1. [Git and GIthub](#git-and-github)
+    a. [Git and GIthub are different](#git-and-github-are-different)
+    b. [Version Control System](#version-control-system)
+    c. [Before Git](#before-git)
+    d. [Installing git](#installing-git)
+        1. [For Windows](#for-windows)
+        2. [For MacOS(using homebrew)](#for-macos-using-homebrew)
+        3. [For Linux](#for-linux)
+        4. [GUI](#download-git-using-gui)
+    e. [Account Github](#github-account)
 2. [Terminology](#terminoly)
 3. [Git Internals (Git behind the scene)](#git-behind-the-scene-git-internals)
 4. [Branches in git](#branches-in-git)

@@ -1,5 +1,15 @@
 # Git 
-## Git and GitHub
+## Index
+1. [Git and GIthub](#git-and-github)
+2. [Terminology](#terminoly)
+3. [Git Internals (Git behind the scene)](#git-behind-the-scene-git-internals)
+4. [Branches in git](#branches-in-git)
+5. [diff, stash, and Tags](#diff-stash-and-tags)
+6. [Rebase and reflog](#rebase-and-reflog)
+7. [Getting started with Github](#getting-started-with-github)
+
+
+## Git and Github
 
 ### Git and Github are different
 **Git**
@@ -660,7 +670,7 @@ git reset --hard HEAD@{n}
 ```
 
 ## Getting started with Github
-## What is Github?
+### What is Github?
 Github is web-based GIt repository hosting service. Ti is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to your code, as well as a platform for hosting and sharing your projects with others.
 
 Some other alternative of Github are:

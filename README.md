@@ -100,10 +100,10 @@ git --version
 This should display the version of Git installed on your system
 
 ###### Download git using GUI:
-Git is available for Windows, macOS, and Linux and is available at https://git-scm.com/downloads.
+Git is available for Windows, macOS, and Linux and is available at [Git Download](https://git-scm.com/downloads).
 
 ### Account Github
-
+For this section click on [Github](#getting-started-with-github)
 
 
 ## Terminoly
@@ -602,4 +602,198 @@ You can delete a tag on a remote repository using the following command:
 git push origin :<tag-name>
 ```
 
-##
+## Rebase and reflog
+### Rebase in git
+Git rebase is a powerful Git feature used to change the base of a branch. It effectively allow you to move a branch to a new starting point, usually a different commit, by "replying" the commits from the original base onto the new base. This can be useful for keeping a cleaner, linear project history.
+
+Some people like to use rebase over the merge command because it allows you to keep the commit history cleaner and easier to understand. It allows you to make changes to the code without affecting the original branch.
+
+### Merge commits
+A merge commit is a commit that combines two or more commits into one. It is created when you merge two or more branches into a single branch. The merge contains all the changes from the original branches, and it is used to keep the project history clean and easy to understand.
+
+![alt text](merge-commits.png)
+
+### Rebase
+![alt text](rebase.png)
+Rebase is a poweful tool in Git that allows you to move a branch to a new starting point. It effectively replays the commits from the original base onto the new base. This can be useful foe keeping a cleaner, linear project history.
+
+Here's a flow example of using git rebase with all the commands involved:
+
+Suppose you hae a feature branch called **feature-branch** that you want to rebase onto the main branch.
+
+### Ensure you  are on the branch that you want to rebase:
+```
+git checkout feature-branch
+git rebase main
+```
+Here `feature-branch` is the branch that you  want to rebase. `main` is the branch from that you want to rebase the `feature-branch`.
+
+This will replay the commits from `feature-branch` on top of the latest change in main.
+
+### Resolve any conflicts:
+If there are any conflicts, you will need to resolve them manually. You can use the merge tool in VSCode to resolve  the conflicts.
+```
+git add <resolve-files>
+git rebase --continue
+```
+> **Note:** Try to avoid using the `--force` option when using `git rebase`. It can cause issues with the project history. Many horror stories involve people using `--force` to fix conflicts.
+ 
+
+### Git reflog
+Git reflog is a command that shows you the history of your commits. It allows you to see the changes that you have made to your repository over time. This can be useful for debugging and understanding the history of your project.
+
+### View the reflog
+```
+git reflog
+```
+This willshow you the history of your commits. You can use the number at the end of each line to access the commit that you want to view.
+
+### Find specific commit
+You can find a specific commit using the following command:
+```
+git reflog <commit-hash>
+```
+Or you can use `HEAD@{n}` to reset to the nth commit before the one you want to reset to.
+```
+git rebase <commit-hash>
+git reset --hard HEAD@{n}
+```
+
+## Getting started with Github
+## What is Github?
+Github is web-based GIt repository hosting service. Ti is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to your code, as well as a platform for hosting and sharing your projects with others.
+
+Some other alternative of Github are:
+- Gitlab
+- Bitbucket
+- Azure Repos
+- Gitea
+But mainstream popular tool these days is Github.
+
+### Github Account
+Creating a Github account is free and easy. YOu can create an account by visiting the [Github website]https://github.com/) and clicking on the **"Sign Up"** button. You will be promoted to enter your email address and password, and then you will be redirected to the Github homepage.
+
+Once you have created an account, you can start using Github to host and collaborate on your projects. Github provides a variety of features and tools that make it easy to manage and track your code, including issues, pull requests, and code reviews.
+
+### Configure your config file
+If you haven't done it already, youneed to configure your git config file. You can do this by running the following command:
+```
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your name"
+```
+This will set your email and name as your as your global setting. You can change these settings later by running the following command:
+```
+git config --global user.email "your-email@exmaple.com"
+git config --global user.name "Your name"
+```
+Now you can check your config setting :
+```
+git config --lilst
+```
+This will show you all the settings that you have changed.
+
+### Setup ssh key and add to github
+If you haven't done it already, you need to setup ssh key and add it to your github account. You can do this by following the intructions on the [github website](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) 
+
+You can find the exact steps on the website for both Windows, Linux and MacOS. The steps are same for both, only macOS users need to add the ssh key to their keychain.
+
+#### Step 1: Generate a new SSH key
+To generate a new SSH key, open the terminal and run the following command :
+```
+ssh-keygen -t ed25519 -C "your-email@example.com"
+```
+Here `ed25519` is the type of key that you are generating. This creates a new SSH key, suing the provided email as label.
+
+#### Step 2: Save the key
+After generating the key, you need to save it to your computer. You can do this by running the following :
+> **Note** Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
+
+At the prompt you can enter passphrase for the key or you can leave it blank.  If you leave it blank, the key will be saved without a passphrase.
+
+#### Step 3: Add key to your ssh-agent
+After saving the key, you need to add it to your ssh-agent. You can do this by running the following command:
+
+For this refer to Github, github has a lot of information on this.
+
+#### 4. Add key to Github
+Use the webui to add key to your github account. You can do this by following the instructions on the [Github website](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=webui) 
+
+### Adding code to remote repository
+Now after setup of your ssh key and added it to your github account, you can start pushing your code to the remote repository.
+
+Create a new Repo on your system first, add some code and commit it.
+```
+git init
+git add <file-name>
+git commit -m "commit message"
+```
+
+#### Check remote URL Setting
+```
+git remote -v
+```
+This will show you the remote url of your repository.
+
+#### Add remote repository
+You can add a remote repository by running the following command:
+```
+git remote add origin <remote-url>
+```
+Here `remote-url` is the url of the remote repository that you want to add and `origin` is the name of the remote repository. Thia origin is used to refer to the remote repository in the future.
+
+#### Push code to remote repository
+```
+git push remote-name branch-name
+```
+Here `remote-name` is the nmae of the remote that you want to push to and `branch-name` is the name of the branch that you want to push.
+```
+git push origin main
+```
+
+#### Setup an upstream remote
+Setting up an upstream remote is useful when you want to keep your local repository up to date with the remote repository. It allows you to fetch and merge change from the remote repository into your local repository.
+
+To set up an remote,you can use the following command:
+```
+git remote add upstream <remote-url>
+```
+Or you can use the **shortcut**
+```
+git remote add -u <remote-url>
+```
+You can do this at the time of pushing your code to the remote repository.
+```
+git push -u origin main
+```
+
+This will setup an upstream remote and push your code to the remote repository.
+
+This will allow you run future command like `git pull` and `git push` wihout specifying the remote name.
+
+### Get code from remote repository
+There are two ways to get code from a remote from repository :
+- fetch the code
+- pull the code
+
+`Fetch` the code means that you are going to download the code from the remote repository to your local repository. 
+
+`Pull` the code means that you are going to download the code from the remote repository and merge it with your local repository.
+
+![alt text](code-from-remote.png)
+
+
+### Fetch code
+To fetcg code from a remote repository, youcan use the following command :
+```
+git fetch <remote-name>
+```
+Here `remote-name` is the name of the remote repository that you want to fetch from.
+
+### PUll code
+To pull code froma remote repository, you can use the following command :
+```
+# git pull <remote-name> <branch-name>
+git pull origin main
+```
+Here `remote-nmae` is the name of the remote repository that you want to pull. 
+

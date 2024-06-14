@@ -1,6 +1,6 @@
 # Git 
 ## Index
-1. [Git and GIthub](#git-and-github)
+1. [Git and Github](#git-and-github)
     a. [Git and GIthub are different](#git-and-github-are-different)
     b. [Version Control System](#version-control-system)
     c. [Before Git](#before-git)
@@ -11,11 +11,84 @@
         4. [GUI](#download-git-using-gui)
     e. [Account Github](#github-account)
 2. [Terminology](#terminoly)
+    a. [Check ou git version](#check-your-git-version)
+    b. [Repository](#repository)
+    c. [Your config setting](#your-config-setting)
+    d. [Creating a Repository](#repository)
+    e. [Commit](#commit)
+    f. [Complete git flow](#complte-git-flow)
+    g. [Stage](#stage)
+    h. [Commit](#commit-1)
+    i. [log](#log)
+        1. [Atomic commits](#atomic-commits)
+    j. [Change default code editor](#change-default-code-editor)
+    k. [gitignore](#gitignore)
 3. [Git Internals (Git behind the scene)](#git-behind-the-scene-git-internals)
+    a. [Git Snapshot](#git-snapshots)
+    b. [3 Musketeers of git](#3-musketeers-of-git)
+    c. [Commit Object](#commit-object)
+    d. [Tree Object](#tree-object)
+    e. [Blob Object](#blob-object)
+    f. [Helpful Commands](#helpfull-commands)
+    g. [Data in git](#data-in-git)
+    h. [Types of commands in git](#types-of-commands-in-git)
+    i. [How things are Done without interface in git](#how-things-are-done-without-interface-in-git)
 4. [Branches in git](#branches-in-git)
+    a. [Branches in git](#branches-in-git-1)
+    b. [HEAD in git](#head-in-git)
+    c. [Creating a new Branch](#creating-a-new-branch)
+    d. [Merging branches](#merging-branches)
+        1. [Fast Forward merge](#fast_forward-merge)
+        2. [Not Fast-Forward](#not-fast-forward-merge)
+    e. [Managing conflicts](#managing-conflits)
+    f. [Rename a branch](#rename-a-branch)
+    g. [Delete a branch](#delete-a-branch)
+    h. [Checkout a branch](#checkout-a-branch)
+    i. [List all branches](#list-all-branches)
 5. [diff, stash, and Tags](#diff-stash-and-tags)
+    a. [Git diff](#git-diff)
+        1. [How to read the diff](#how-to-read-the-diff)
+        2. [Comparing Working Directory and Staging Area](#comparing-working-directory-and-staging-area)
+        3. [Comparing Staging Areas with Repository](#comparing-staging-area-with-repository)
+        4. [Comparing Specific Commits](#comparing-specific-commits)
+    b. [Git stash](#git-stash)
+        a. [Naming the stash](#naming-the-stash)
+        b. [View the stash list](#view-the-stash-list) 
+        c. [Apply the stash](#apply-the-stash)
+        d. [Apply the specific stash](#apply-the-specific-stash)
+        e. [Applying and dropping the stash](#applying-and-dropping-the-stash)
+        f. [Drop the Stash](#drop-the-stash)
+        g. [Applying stash to a specific branch](#applying-stash-to-a-specific-branch)
+        h. [Clearing the stash](#clearing-the-stash)
+    c. [Git tags](#git-tags)
+        a. [Creating a tag](#creating-a-tag)
+        b. [Creating an annoted tag](#create-an-annotated-tag)
+        c. [List all tags](#list-all-tags)
+        d. [Tagging a specific commit](#tagging-a-specific-commit)
+        e. [Push tags to remote repository](#push-tags-to-remote-repository)
+        f. [Delete a tag](#delete-a-tag)
 6. [Rebase and reflog](#rebase-and-reflog)
+    a. [Rebase in git](#rebase-in-git)
+    b. [Merge commits](#merge-commits)
+    c. [Rebase](#rebase)
+        1. [Ensure you are on the branch that you want to rebase](#ensure-you--are-on-the-branch-that-you-want-to-rebase)
+        2. [Resolve any conflicts](#resolve-any-conflicts)
+    d. [Git reflog](#git-reflog)
+        1. [View the reflog](#view-the-reflog)
+        2. [Find specific commit](#find-specific-commit)
 7. [Getting started with Github](#getting-started-with-github)
+    a. [What is Github?](#what-is-github)
+    b. [Github Account](#github-account)
+    c. [Configure your config file](#configure-your-config-file)
+    d. [Setup ssh key and add to github](#setup-ssh-key-and-add-to-github)
+    e. [Adding code to remote repository](#adding-code-to-remote-repository)
+        1. [Check remote URL setting](#check-remote-url-setting)
+        2. [Add remote repository](#add-remote-repository)
+        3. [Push code to remote repository](#push-code-to-remote-repository)
+        4. [Setup an upstream remote](#setup-an-upstream-remote)
+    f. [Get code from remote repository](#get-code-from-remote-repository)
+        1. [Fetch Code](#fetch-code)
+        2. [Pull code](#pull-code)
 
 
 ## Git and Github
@@ -126,7 +199,7 @@ For this section click on [Github](#getting-started-with-github)
 
 
 ## Terminoly
-### CHeck your git version
+### Check your git version
 To check your git version, you can run the following command:
 
 ```
@@ -328,7 +401,7 @@ Conceptually, the data that Git is storing looks something like this:
 
 3. Gardening Command (not sure about it)
 
-### How to done things in git (without any interface)
+### How things are Done without interface in git
 ```
 git init
 git status
@@ -734,7 +807,7 @@ After saving the key, you need to add it to your ssh-agent. You can do this by r
 
 For this refer to Github, github has a lot of information on this.
 
-#### 4. Add key to Github
+#### Step 4: Add key to Github
 Use the webui to add key to your github account. You can do this by following the instructions on the [Github website](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=webui) 
 
 ### Adding code to remote repository
@@ -808,7 +881,7 @@ git fetch <remote-name>
 ```
 Here `remote-name` is the name of the remote repository that you want to fetch from.
 
-### PUll code
+### Pull code
 To pull code froma remote repository, you can use the following command :
 ```
 # git pull <remote-name> <branch-name>
